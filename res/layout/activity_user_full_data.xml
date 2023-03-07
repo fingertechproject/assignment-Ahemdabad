@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UserFullDataActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.assignment.viewmodels.UserFullDataVM" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/userFullImage"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_launcher_background"
+            />
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            app:layout_constraintStart_toStartOf="@id/userFullImage"
+            app:layout_constraintBottom_toBottomOf="@id/userFullImage"
+            android:layout_marginLeft="25dp"/>
+        <Button
+            android:id="@+id/updtBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="update"
+          app:layout_constraintEnd_toEndOf="@id/userFullImage"
+
+            app:layout_constraintBottom_toBottomOf="@id/userFullImage"
+            android:layout_marginRight="25dp"/>
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.firstName}"
+           app:layout_constraintTop_toBottomOf="@id/userFullImage"
+           app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/lastName"
+            android:textSize="50sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.lastName}"
+            app:layout_constraintTop_toBottomOf="@id/userFullImage"
+            app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toEndOf="@id/firstName"
+            android:gravity="center"
+            android:textSize="50sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstName"
+            android:text="@{viewModel.email}"
+            android:textSize="30sp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
